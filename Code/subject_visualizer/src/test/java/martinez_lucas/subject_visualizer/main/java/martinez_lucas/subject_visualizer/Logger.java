@@ -4,19 +4,18 @@ import java.util.ArrayList;
 
 public class Logger {
 
-    public boolean verify(ArrayList<User> users, String username, String password){
-        boolean successful = false;
-
+    public User verify(ArrayList<User> users, String username, String password){
         for(User u: users){
             if(u.getUsername().equals(username)) {
                 if (u.getPassword().equals(password))
-                    return true;
+                    return u;
                 else{
                     System.out.println("Incorrect password. Try again.");
-                    break;
+                    return null;
                 }
             }
         }
-        return successful;
+        System.out.println("Username doesn't exists. Try again.");
+        return null;
     }
 }
