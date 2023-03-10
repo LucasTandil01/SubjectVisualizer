@@ -18,14 +18,6 @@ public class Subject {
         this.students = new ArrayList<>();
     }
 
-    public void addStudent(Student student){
-        students.add(student);
-    }
-
-    public void removeStudent(Student student){
-        students.remove(student);
-    }
-
     public void setMark(double mark, Professor professor) {
         if(professor.equals(getProfessor()))
             this.mark = mark;

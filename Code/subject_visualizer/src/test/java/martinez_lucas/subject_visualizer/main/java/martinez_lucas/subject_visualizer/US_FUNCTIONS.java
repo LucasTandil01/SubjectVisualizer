@@ -39,7 +39,7 @@ public final class US_FUNCTIONS {
     }
     public static void addSubjectStudent(ArrayList<Subject> subjects, Subject subject, Student student){
         subjects.add(subject);
-        subject.addStudent(student);
+        addStudentToSubject(subject.getStudents(), student);
     }
 
     public static void uploadMark(Professor professor){
@@ -58,7 +58,7 @@ public final class US_FUNCTIONS {
 
         ArrayList<Subject> student_subjects = student.getSubjects();
         int sub_pos = student_subjects.indexOf(subject);
-        student_subjects.get(sub_pos).setMark(mark,professor);
+        student_subjects.get(sub_pos).setMark(mark, professor);
     }
 
     public static void addSubjectProfessor(ArrayList<Subject> subjects, Subject subject){
@@ -67,5 +67,13 @@ public final class US_FUNCTIONS {
 
     public static void removeSubject(ArrayList<Subject> subjects, Subject subject){
         subjects.remove(subject);
+    }
+
+    public static void addStudentToSubject(ArrayList<Student> students, Student student){
+        students.add(student);
+    }
+
+    public static void removeStudentFromSubject(ArrayList<Student> students, Student student){
+        students.remove(student);
     }
 }
