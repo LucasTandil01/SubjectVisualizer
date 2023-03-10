@@ -1,14 +1,18 @@
 package martinez_lucas.subject_visualizer;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class UniversitySystem {
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Subject> subjects = new ArrayList<>();
-    private Logger logger = new Logger();
 
     public void start(){
+        uploadBD();
+
+        LOGGER.login(users);
+    }
+
+    private void uploadBD(){
         addUser(new Professor("P_111","12345", "Oscar"));
         addUser(new Professor("P_112","12345", "Carlos"));
         addUser(new Professor("P_113","12345", "Rebecca"));
@@ -27,46 +31,26 @@ public class UniversitySystem {
 
         for(User u: users){
             if(u.getUsername().startsWith("S_")){
-                ((Student)u).addSubject(subjects.get(0));
-                ((Student)u).addSubject(subjects.get(1));
-                ((Student)u).addSubject(subjects.get(2));
+                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(0),((Student)u));
+                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(1),((Student)u));
+                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(2),((Student)u));
                 if(u.getUsername().endsWith("2") || u.getUsername().endsWith("4")){
-                    ((Student)u).addSubject(subjects.get(3));
-                    ((Student)u).addSubject(subjects.get(4));
+                    US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(3),((Student)u));
+                    US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(4),((Student)u));
                 }
             }
         }
-
-        login();
     }
 
-    public void login(){
-        System.out.println();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Username: ");
-        String username = sc.nextLine();
-        System.out.print("Password: ");
-        String password = sc.nextLine();
-        User user = logger.verify(users,username,password);
-        if(user == null)
-            login();
-        else
-            user.login();
-        System.out.println("Do you want to exit app? \n 1. Yes. \n 2. No.");
-        int option = sc.nextInt();
-        if(option == 2)
-            login();
-    }
-
-    public void addUser(User user){
+    private void addUser(User user){
         users.add(user);
     }
 
-    public void removeUser(User user){
+    private void removeUser(User user){
         users.remove(user);
     }
 
-    public void addSubject(String name, Professor professor){
+    private void addSubject(String name, Professor professor){
         Subject subject = new Subject(name,professor);
         professor.addSubject(subject);
         subjects.add(subject);

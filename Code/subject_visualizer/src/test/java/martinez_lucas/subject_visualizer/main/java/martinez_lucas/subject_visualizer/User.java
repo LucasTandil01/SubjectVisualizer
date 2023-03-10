@@ -1,8 +1,6 @@
 package martinez_lucas.subject_visualizer;
 import lombok.*;
 
-import java.util.Scanner;
-
 @Getter
 public abstract class User {
     private String username;
@@ -14,13 +12,12 @@ public abstract class User {
         this.password = password;
         this.name = name;
     }
-    public void login() {
+    public void login() { // This could be a GUI in the future
         System.out.println();
         System.out.println("Welcome " + name + ".");
-        menu();
+        Menu menu = new Menu(this);
+        menu.displayMenu();
     }
-
-    public abstract void menu(); // This could be a GUI in the future
 
     @Override
     public boolean equals(Object o){
