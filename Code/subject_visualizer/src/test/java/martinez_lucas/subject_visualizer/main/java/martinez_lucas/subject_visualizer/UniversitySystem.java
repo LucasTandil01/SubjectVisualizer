@@ -31,12 +31,12 @@ public class UniversitySystem {
 
         for(User u: users){
             if(u.getUsername().startsWith("S_")){
-                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(0),((Student)u));
-                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(1),((Student)u));
-                US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(2),((Student)u));
+                US_FUNCTIONS.addSubjectStudent(((Student)u).getSubjects(),subjects.get(0),((Student)u));
+                US_FUNCTIONS.addSubjectStudent(((Student)u).getSubjects(),subjects.get(1),((Student)u));
+                US_FUNCTIONS.addSubjectStudent(((Student)u).getSubjects(),subjects.get(2),((Student)u));
                 if(u.getUsername().endsWith("2") || u.getUsername().endsWith("4")){
-                    US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(3),((Student)u));
-                    US_FUNCTIONS.addSubject(((Student)u).getSubjects(),subjects.get(4),((Student)u));
+                    US_FUNCTIONS.addSubjectStudent(((Student)u).getSubjects(),subjects.get(3),((Student)u));
+                    US_FUNCTIONS.addSubjectStudent(((Student)u).getSubjects(),subjects.get(4),((Student)u));
                 }
             }
         }
@@ -52,7 +52,7 @@ public class UniversitySystem {
 
     private void addSubject(String name, Professor professor){
         Subject subject = new Subject(name,professor);
-        professor.addSubject(subject);
+        US_FUNCTIONS.addSubjectProfessor(professor.getSubjects(),subject);
         subjects.add(subject);
     }
 }

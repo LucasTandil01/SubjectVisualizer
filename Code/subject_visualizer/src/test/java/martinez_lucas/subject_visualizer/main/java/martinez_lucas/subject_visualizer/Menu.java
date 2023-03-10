@@ -55,7 +55,7 @@ public class Menu {
         int option = sc.nextInt();
         switch (option){
             case 1:
-                ((Professor)user).uploadMark();
+                US_FUNCTIONS.uploadMark((Professor)user);
                 break;
             case 2:
                 System.out.println("Goodbye!");
