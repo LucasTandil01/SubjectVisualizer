@@ -5,7 +5,7 @@ package martinez_lucas.subject_visualizer;
 //import org.apache.pdfbox.pdmodel.PDPage;
 
 
-public class ProyectApplication  {
+public class ProjectApplication {
 
 	public static void main(String[] args) {// throws IOException  {
 
