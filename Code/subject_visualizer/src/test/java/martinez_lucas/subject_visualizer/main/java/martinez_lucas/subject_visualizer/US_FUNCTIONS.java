@@ -26,8 +26,8 @@ public final class US_FUNCTIONS {
         return average;
     }
 
-    public static void seeSubjects(ArrayList<Subject> subjects){
-        System.out.println(subjects);
+    public static void seeSubjects(User user){
+        System.out.println(user.getSubjects());
     }
 
     public static void enrollInSubject(){

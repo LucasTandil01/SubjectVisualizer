@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
     static Scanner sc = new Scanner(System.in);
-    User user;
+    private User user;
     Menu(User user){
         this.user = user;
     }
@@ -33,10 +33,10 @@ public class Menu {
                 US_FUNCTIONS.toCancelSubject();
                 break;
             case 3:
-                US_FUNCTIONS.seeSubjects(((Student)user).getSubjects());
+                US_FUNCTIONS.seeSubjects(user);
                 break;
             case 4:
-                System.out.println("Average: " + US_FUNCTIONS.calculateAverage(((Student)user).getSubjects()) + ".");
+                System.out.println("Average: " + US_FUNCTIONS.calculateAverage(user.getSubjects()) + ".");
                 break;
             case 5:
                 System.out.println("Goodbye!");
